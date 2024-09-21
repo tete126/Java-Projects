@@ -1,0 +1,62 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class CCC2014Q5 {
+  public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+    int n = input.nextInt();
+
+    ArrayList<String> list = new ArrayList<String>();
+    ArrayList<String> list2 = new ArrayList<String>();
+
+    for(int i = 0; i < n; i++)
+      {
+        String name = input.next();
+        list.add(name);
+      }
+
+    for(int i = 0; i < n; i++)
+    {
+      String name = input.next();
+      list2.add(name);
+    }
+
+    /*for(int i = 0; i < list.size(); i++)
+    {
+       for(int j = 0; j < list.size(); j++)
+        {
+          if(list.get(i).equals(list.get(j)))
+          {
+            if(list2.get(i).equals(list2.get(j)))
+            {
+              System.out.println("good");
+              break;
+            }
+            else
+            {
+              System.out.println("bad");
+              break;
+            }
+          }
+          break;
+        }
+    }*/
+    boolean isBad = false;
+    for(int i = 0; i < list.size(); i++)
+    {
+        String name1 = list.get(i);
+        String name2 = list2.get(i);
+        int index = list2.indexOf(name1);
+        if (!list.get(index).equals(name2))
+        {
+          System.out.println("bad");
+          isBad = true;
+          break;
+        }
+    }
+    if (!isBad)
+    {
+        System.out.println("good");
+    }
+  }
+}
